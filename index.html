@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Taylor Swift SOTD API</title>
+        <link rel="stylesheet" href="style.css">
+    </head>    
+    <body>
+        <h1>Taylor Swift Song of the Day API</h1>
+        <p>This api is designed to give you a random song of the day from taylor's catalouge. Send a request to link/api to recieve the song of the day.</p>
+        <p>This API contains all Taylor Swift songs that were officially released on one of her albums and randomly returns a song each day. This API is completely free and doesn't require a key to use.</p>
+        <p class="back">Example code:
+            <code><pre>
+                async function getSong() {
+                    try {
+                        const res = await fetch('/sotd');
+                        const data = await res.json();
+                        console.log(data)
+                        //your code goes here
+                    } catch(err) {
+                        console.log(`Error ${err}`);
+                    }
+                };
+                
+                getSong();
+            </pre></code>
+        </p>
+        <p class="back">Response data will be an object that looks like:
+            <code><pre>
+                {
+                    name: 'Love Story', 
+                    youtube: 'https://www.youtube.com/watch?v=8xg3vE8Ie_E', 
+                    album: 'Fearless', 
+                    taylorsversion: 'no',
+                    lyrics: `We were both young when I first saw you
+                    I close my eyes and the flashback starts
+                    I'm standing there....`
+                }
+            </pre></code>
+        </p>
+        <p>All songs include a youtube link from Taylor Swift's official youtube channel. Taylor's Versions of songs will be used when possible, except for songs with a music video to the original recording. Some of the videos on Taylor's channel are lyric videos. In those instances, the lyrics property will be an empty string.</p>
+
+        <p class="back">If you would like to embed the youtube video in an iframe like the example below you will have to change the link to work with youtube's player api. Here's a javascript example of how to do this:
+            <code><pre>
+                let embeded = data.youtube.replace('watch?v=', 'embed/')
+            </pre></code>
+        </p>
+        <p>Please note that the 'taylorsversion' property will be yes for any masters that she owns in the video sent. So, for albums like folklore and evermore that were always her oringal masters the taylorsversion property will be set to 'yes'.</p>
+
+        <h2>Today's song of the day is <span id="song"></span>.</h2>
+        <div>
+            <iframe src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="center">NOTE: Adblockers may interfer with the ability to play this video.</p>
+        <p class="center" id="version">From the <span id="album"></span> album.</p>
+        <p class="center" id="lyrics"></p>
+        <span>Endpoint: https://simple-rapper-api.herokuapp.com/api/:name</span>
+        
+        
+
+    <script src="main.js"></script>
+
+    </body>
+</html>
