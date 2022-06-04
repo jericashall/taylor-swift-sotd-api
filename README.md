@@ -1,4 +1,4 @@
-# My Awesome Project
+# Taylor Swift Song of the Day API
 This is an api that will send a daily Taylor Swift song. It sends the name, youtube link, album, lyrics, and whether or not Taylor owns the masters.
 
 **Link to project:** 
