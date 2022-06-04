@@ -10,7 +10,7 @@ async function getSong() {
         document.querySelector('#lyrics').innerText = data.lyrics;
 
         if (data.taylorsversion === 'yes') {
-            document.querySelector('#version').innerText += ' This is Taylor\'s Version that she re-recorded and now owns herself!'
+            document.querySelector('#version').innerText += ' This masters is owned by Taylor herself!'
         }
 
     } catch(err) {
