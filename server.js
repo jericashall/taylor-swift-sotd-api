@@ -7124,9 +7124,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/sotd', (req, res) => {
-    console.log(use)
-    console.log(usedSongs)
-    console.log(songs[use])
     res.json(songs[use]);
 });
 
